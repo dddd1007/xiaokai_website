@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: Xiaokai Xia
 
 # Username (this should match the folder name)
 authors:
@@ -10,32 +10,34 @@ authors:
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Ph.D. candidate
 
 # Organizations/Affiliations
 organizations:
-- name: Stanford University
-  url: ""
+- name: South China Normal University
+  url: "http://psy.scnu.edu.cn/"
+- name: Capital Of Statistics
+  url: "https://cosx.org/"
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: A doctor of TCM with Data Science and Psychological Counseling is learning psychology.
 
 interests:
-- Artificial Intelligence
-- Computational Linguistics
-- Information Retrieval
+- Model-based Psychology
+- Data Science
+- Psychological Counseling
 
 education:
   courses:
-  - course: PhD in Artificial Intelligence
-    institution: Stanford University
-    year: 2012
-  - course: MEng in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
+  - course: Computational Neuroscience
+    institution: South China Normal University
+    year: 2017
+  - course: Applied cognitive psychology
+    institution: Tianjin Normal University
+    year: 2015
+  - course: Traditional Chinese medicine
+    institution: Shanxi University of Chinese Medicine
     year: 2009
-  - course: BSc in Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    year: 2008
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/page-builder/#icons
@@ -47,13 +49,10 @@ social:
   link: '#contact'  # For a direct email link, use "mailto:test@example.org".
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/GeorgeCushen
-- icon: google-scholar
-  icon_pack: ai
-  link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+  link: https://twitter.com/exrld
 - icon: github
   icon_pack: fab
-  link: https://github.com/gcushen
+  link: https://github.com/dddd1007
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 # - icon: cv
@@ -61,8 +60,8 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: ""
-
+email: "dddd1007@gmail.com"
+  
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
@@ -70,6 +69,8 @@ user_groups:
 - Visitors
 ---
 
-Nelson Bighetti is a professor of artificial intelligence at the Stanford AI Lab. His research interests include distributed robotics, mobile computing and programmable matter. He leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Xiaokai is studying at the School of Psychology, South China Normal University. He is pursuing a Ph.D. in cognitive psychology. His main research interests are computational modeling of human cognitive task by using behavioral data.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+Xiaokai's undergraduate major is clinical in traditional Chinese medicine. He has several years of internship and clinical experience.
+
+Xiaokai promotes R-based data analysis workflows in the social sciences. He try to provide R-related training, and also perform data science-related translation, organization of conferences and events.

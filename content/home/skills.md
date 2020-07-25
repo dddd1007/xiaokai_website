@@ -17,35 +17,37 @@ subtitle = ""
 [[feature]]
   icon = "r-project"
   icon_pack = "fab"
-  name = "R"
-  description = "90%"
-  
+  name = "Datascience Programming"
+  description = "80%"
+
 [[feature]]
   icon = "chart-line"
   icon_pack = "fas"
   name = "Statistics"
-  description = "100%"  
-  
+  description = "70%"  
+
 [[feature]]
-  icon = "camera-retro"
+  icon = "brain"
   icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "Cognitive Psychology"
+  description = "80%"
 
-# Uncomment to use emoji icons.
-# [[feature]]
-#  icon = ":smile:"
-#  icon_pack = "emoji"
-#  name = "Emojiness"
-#  description = "100%"  
+[[feature]]
+  icon = "chalkboard-teacher"
+  icon_pack = "fas"
+  name = "Teaching and Presentation"
+  description = "95%"
 
-# Uncomment to use custom SVG icons.
-# Place custom SVG icon in `assets/images/icon-pack/`, creating folders if necessary.
-# Reference the SVG icon name (without `.svg` extension) in the `icon` field.
-# [[feature]]
-#  icon = "your-custom-icon-name"
-#  icon_pack = "custom"
-#  name = "Surfing"
-#  description = "90%"
+[[feature]]
+  icon = "stethoscope"
+  icon_pack = "fas"
+  name = "Clinical Medicine"
+  description = "60%"
+
+[[feature]]
+  icon = "assistive-listening-systems"
+  icon_pack = "fas"
+  name = "Psychanslysis"
+  description = "50%"
 
 +++
