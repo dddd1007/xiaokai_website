@@ -69,8 +69,8 @@ user_groups:
 - Visitors
 ---
 
-Xiaokai is studying at the School of Psychology, South China Normal University. He is pursuing a Ph.D. in cognitive psychology. His main research interests are computational modeling of human cognitive task by using behavioral data.
+Xiaokai is studying at the School of Psychology, South China Normal University. He is pursuing a Ph.D. in cognitive psychology. His main research interests are computational modeling of human cognitive tasks by using behavioral data.
 
-Xiaokai's undergraduate major is clinical in traditional Chinese medicine. He has several years of internship and clinical experience.
+Xiaokai’s undergraduate major is clinical in traditional Chinese medicine. He has several years of internship and clinical experience.
 
-Xiaokai promotes R-based data analysis workflows in the social sciences. He try to provide R-related training, and also perform data science-related translation, organization of conferences and events.
+Xiaokai promotes R-based data analysis workflows in the social sciences. He tries to provide R-related training and performing data science-related translation. He also organizes data science conferences and events.
