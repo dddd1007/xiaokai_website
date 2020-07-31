@@ -24,6 +24,7 @@ projects: []
 
 > 再吐槽一下, NMA 把绘图程序都搞成 Helper Function 了, 看似封装了细节, 实则增加了理解成本, 而且还和日常分析数据的 Workflow 不符, 我觉得这个设计不妥.
 
+版权声明: 本文档来源于 [NeuromatchAcademy 课程第二周内容](https://github.com/NeuromatchAcademy/course-content), 并依照原内容所声明的 [CC-BY-4.0 协议](https://github.com/NeuromatchAcademy/course-content/blob/master/LICENSE.md), 保留对原内容进行修改, 甚至利用其进行商业行为的权利. 本文档是对 NMA 课程原内容基础上的演绎, 并同样遵守 CC-BY-4.0 协议.
 ## 1. 概述
 
 心理学研究的本质是尝试理解和预测人的内部心理过程. 然而由于内部过程的不可观测性, 我们会通过测量外部的信号或行为来反推这一黑箱的内部. 换句话说, 理解个体心理的过程, 实质上就是理解个体的行为和生物信号背后的控制系统的过程. 而在控制论等知识的指导下, 我们利用数学工具对内部的控制过程进行建模, 以帮助我们解释和预测外部所观测到的变量.
