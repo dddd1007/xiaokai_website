@@ -161,7 +161,7 @@ levelplot(stack(rlist),layout = c(3,1),at = seq(0,1,.01))
 
 本节我们会简单介绍 RSA 方法，并且围绕着它处理一些问题。特别是，我们将会演示如何在个体水平和组水平上检验 RSA 结果的意义。我们同样会了解到 RSA 的效应量方面的一系列的注意事项，同时学到如何进行交叉验证和模型选择。
 
-不同与我们上面所做的那个像玩具一样的例子，本节我们会使用一个真正的 fMRI 研究数据。本数据来源于过去的一项研究。 [Thornton & Mitchell, 2017, Cerebral Cortex](http://markallenthornton.com/cv/Thornton&Mitchell_CC_2017.pdf) 
+不同与我们上面所做的那个像玩具一样的例子，本节我们会使用一个真正的 fMRI 研究数据。本数据来源于过去的一项研究。 [Thornton & Mitchell, 2017, Cerebral Cortex](https://markallenthornton.com/cv/Thornton&Mitchell_CC_2017.pdf) 
 
 在本研究中，探讨 60 个社会名人的13项人格特质。研究涉及到的数据包括社会对这些名人的看法，被试对这些被试之间人格差异的比较，以及在想象这些名人时的脑功能活动数据。
 
@@ -171,7 +171,7 @@ levelplot(stack(rlist),layout = c(3,1),at = seq(0,1,.01))
 
 在脑成像研究中，参与者要求判断特定的陈述（例如“他想要学习空手道”）对特定人物（例如 Bill Nye）的适用程度。在整个研究过程中反复重复该过程，直到对 60 个目标在 12 个项目下进行评分。这些脑成像数据在预处理之后，使用 GLM 对相同目标人物在不同实验条件（目标任务）下的试次进行平均。在得到每个体素上的回归参数后，对参数进行 z 分数化来排除全局背景模式的影响，再在这些参数之间求相关。这是本例开始的地方。
 
-![Regions of reliability target person-related activity, within which we analyze patterns](http://markallenthornton.com/images/pmap.png)
+![Regions of reliability target person-related activity, within which we analyze patterns](https://markallenthornton.com/images/pmap.png)
 
 我们可以看到上图当中，我们是选择性地选取了一些 ROI 作为后续分析的数据。这些 ROI 的选择的方法基于 Cronbach's alpha 值。计算公式是 α ﹦（n / n -1）(1-∑Si2/St2) 。在本研究中，我们将阈值从 0 到最高值，按 0.01 进行划分，然后计算 Cronbach's alpha 系数，找到最大的值便是我们的阈值。
 
@@ -427,7 +427,7 @@ cor(nsim,explicit)/sqrt(rel$total$std.alpha)
 
 除了测量信度的问题外，还有另一个原因可能导致 RSA 计算得到的相关小于他们真实的结果：将原始数据转换为相似性矩阵会导致信息量的衰减。平均来说， RSA 分析得到的相关度将会是背后多维度数据相关度的平方根。
 
-![](http://markallenthornton.com/images/rsacor.png)
+![](https://markallenthornton.com/images/rsacor.png)
 
 如果你关心表征相似性中差异性的解释本身，那这些并不是一个重要的问题。但是如果你关心的是在相似性背后那些变量的变异性，那么你可以通过对你做的 RSA 相关取平方根来估计你的效应量。
 
@@ -686,7 +686,7 @@ plot(mdfit2,plot.type = "Shepard","Ordinal fit")
 <img src="/post/2019-09-23-rsa-tutorial_files/figure-html/unnamed-chunk-25-1.png" width="768" />
 
 不幸的是，转换为定序的 MDS 并没有多大的帮助——我们的数据维度太高了，很难在2维上得到表征。稍后我们会介绍一下其他的流型学习方法来让结果变得更好。然而在这之前我们首先来看一下双标图：biplots. 正如我之前所提到的，MDS 的轴是任意方向的。双标图在 MDS 图上增加了一些箭头，这些箭头标示了每个维度在图中坐标轴方向上的相关性。这些箭头能够帮助我们理解 MDS 图背后的含义。
-![A heavily embellished MDS, including biplots](http://markallenthornton.com/images/person-space.png)
+![A heavily embellished MDS, including biplots](https://markallenthornton.com/images/person-space.png)
 
 #### 4.2 t-SNE 
 

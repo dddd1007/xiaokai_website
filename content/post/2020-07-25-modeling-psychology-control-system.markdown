@@ -121,7 +121,7 @@ px = my_gaussian(x, -1, 1)
 plot(x, px)
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-1-1.png" width="672" />
 
 要注意的是, 我们这里有一个强假设, 即在函数中, 我们为了标准化 px 的值, 会假定给定的所有 x, 其 px 值的总和为 1 (概率空间当中所有样本概率的和为 1 , 或概率密度函数图像的面积应为 1 ), 才可以使用 `px = px / sum(px)` 来进行标准化. 但这实际上是一种近似的方法.
 
@@ -179,18 +179,18 @@ library(tidyverse)
 ```
 
 ```
-## -- Attaching packages ------------------------------------------------------------------------------------------ tidyverse 1.3.0 --
+## ─ Attaching packages ──────────────────── tidyverse 1.3.0 ─
 ```
 
 ```
-## √ tibble  3.0.3     √ dplyr   1.0.1
-## √ tidyr   1.1.1     √ stringr 1.4.0
-## √ readr   1.3.1     √ forcats 0.5.0
-## √ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.1
+## ✓ tidyr   1.1.1     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0
+## ✓ purrr   0.3.4
 ```
 
 ```
-## -- Conflicts --------------------------------------------------------------------------------------------- tidyverse_conflicts() --
+## ─ Conflicts ───────────────────── tidyverse_conflicts() ─
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
@@ -202,7 +202,7 @@ simulation_data %>%
   ggplot() + geom_point(aes(x = x, y = y, colour = distribution))
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-2-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-2-1.png" width="672" />
 
 从这张图上, 我们可以很容易看出每个点上的概率更新的过程.
 
@@ -271,7 +271,7 @@ sigma_2 = 1.5
 plot(x, mixture_prior(x, mu_1, sigma_1, mu_2, sigma_2, p_1 = 0.65))
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-3-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-3-1.png" width="672" />
 
 如果我们把单独描述左侧声源的高斯分布画出来, 你会发现先验概率对其的影响:
 
@@ -281,7 +281,7 @@ x <- seq(-10, 11, 0.01)
 plot(x, my_gaussian(x, mu_2, sigma_2))
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-4-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-4-1.png" width="672" />
 
 我们可以发现, 外界刺激发生的概率对我们的认知产生了极大的影响. 我们实现的这个混合高斯分布所描述的先验分布, 实际上就是对多个概率分布的加权线性组合.
 
@@ -299,7 +299,7 @@ cbind(x, prior_2_sound_source, likelihood_vision, posterior_2_sound_source) %>%
   ggplot() + geom_point(aes(x = x, y = y, colour = distribution), alpha = 0.5)
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-5-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-5-1.png" width="672" />
 
 我们基本上能看到最终的结果, 在橙色的似然分布影响下, 我们得到的最终后验结果基本上仍然是一个均值为 0 的正态分布, 也就可以理解为, 在视觉信息的强作用下, 即使有很大的干扰, 我们仍然会产生屏幕上的人在说话的知觉——而且很确信.
 
@@ -311,10 +311,10 @@ cbind(x, prior_2_sound_source, likelihood_vision, posterior_2_sound_source) %>%
 
 在我们的研究当中, 我们通常只能知道被试所感知事物的物理特性, 同时也可以通过测量被试的行为从而知道观测的结果, 但是中间的编码过程我们并不知晓. 但是我们可以借助贝叶斯工具来对这个过程进行建模:
 
-1.  表征被试需要认识的外部特征作为先验 $x$
-2.  大脑存在有噪声的对其他线索的认识, 可以表征为 $p(\tilde{x} \mid x)$
-3.  大脑将其他线索的认识 (似然) 与先验整合起来, 得到后验 $p(x \mid \tilde{x})$
-4.  大脑根据后验信息作出反应 $\hat{x}$
+1.  表征被试需要认识的外部特征作为先验 `\(x\)`
+2.  大脑存在有噪声的对其他线索的认识, 可以表征为 `\(p(\tilde{x} \mid x)\)`
+3.  大脑将其他线索的认识 (似然) 与先验整合起来, 得到后验 `\(p(x \mid \tilde{x})\)`
+4.  大脑根据后验信息作出反应 `\(\hat{x}\)`
 
 为了避免歧义, 我们把刚才的例子代入: 我们为了确认声源的位置, 大脑首先表征了先验, 随后将视觉信息作为似然进行信息更新, 最终得到的后验结果便为我们认为声源的位置, 并据此进行推断声源确实是屏幕上演员的面孔附近.
 
@@ -322,11 +322,11 @@ cbind(x, prior_2_sound_source, likelihood_vision, posterior_2_sound_source) %>%
 
 #### 2.4.1 构建似然数组
 
-这次, 为了让我们的模型成为一个更加普适的模型, 我们会将大脑的潜在的每种可能编码都绘制出来. 因此我们会创建一个多重似然函数 $f(x) = p(\hat{x} \mid x)$ , 并且在一个平面上将这个函数进行可视化: x 轴对应 x 值, y轴对应 $\hat{x}$ .
+这次, 为了让我们的模型成为一个更加普适的模型, 我们会将大脑的潜在的每种可能编码都绘制出来. 因此我们会创建一个多重似然函数 `\(f(x) = p(\hat{x} \mid x)\)` , 并且在一个平面上将这个函数进行可视化: x 轴对应 x 值, y轴对应 `\(\hat{x}\)` .
 
 我们同样使用之前的 `my_gaussian()` 函数. 为了构建我们的数组, 将进行以下步骤:
 
-1.  根据不同的均值创建不同的 $\sigma = 1$ 的一系列高斯分布.
+1.  根据不同的均值创建不同的 `\(\sigma = 1\)` 的一系列高斯分布.
 
 2.  假设我们有1000个不同的均值, 那么我们会生成一系列不同的高斯似然分布.
 
@@ -378,17 +378,20 @@ matrix_coordinates_to_dataframe <- function(raw_matrix){
   return(output_dataframe)
 }
 
-
-matrix_coordinates_to_dataframe(likelihood_array) %>% 
+plot_bayesian_matrix <- function(matrix){
+  matrix_coordinates_to_dataframe(matrix) %>% 
   ggplot() + geom_tile(aes(x = x, y = y, fill = value)) +
-  labs(title = "Mulitlikelihood") + ylab("x_tilde")
+  labs(title = "Mulitlikelihood") + ylab("x_tilde") + scale_fill_continuous(type = "viridis")
+}
+
+plot_bayesian_matrix(likelihood_array)
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-7-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-7-1.png" width="672" />
 
-我们看到的这张图是由大量的高斯似然函数图像拼接起来的. 图中的颜色亮度越高, 代表了对应的点概率也就越高. 从图上我们可以看出来, 大脑所表征的空间位置 $\tilde{x}$ 和真实的 $x$ 接近的概率较大, 而其他范围则较小.
+我们看到的这张图是由大量的高斯似然函数图像拼接起来的. 图中的颜色亮度越高, 代表了对应的点概率也就越高. 从图上我们可以看出来, 大脑所表征的空间位置 `\(\tilde{x}\)` 和真实的 `\(x\)` 接近的概率较大, 而其他范围则较小.
 
-接下来让我们描述先验概率. 请注意, 在我们的模型当中, 大脑还未曾对外部信息作出的表征, 因此并不受外部信息的影响, 我们只需要描述真实概率分布 $x$ 即可. 我们同样使用刚才的场景: 有 65% 的概率你听到的声音是从你正前方发出, 有 35% 的概率从另一边发出.让我们用代码实现这个模型.
+接下来让我们描述先验概率. 请注意, 在我们的模型当中, 大脑还未曾对外部信息作出的表征, 因此并不受外部信息的影响, 我们只需要描述真实概率分布 `\(x\)` 即可. 我们同样使用刚才的场景: 有 65% 的概率你听到的声音是从你正前方发出, 有 35% 的概率从另一边发出.让我们用代码实现这个模型.
 
 
 ```r
@@ -410,16 +413,23 @@ calculate_prior_array <- function(x_points, stim_array,
   return(prior)
 }
 
-calculate_prior_array(x, hypothetical_stim, 0.65) %>% 
-  matrix_coordinates_to_dataframe() %>% 
-  ggplot() + geom_tile(aes(x = x, y = y, fill = value)) +
-  labs(title = "Prior") + ylab("x_tilde")
+prior_array <- calculate_prior_array(x, hypothetical_stim, 0.65) 
+plot_bayesian_matrix(prior_array)
 ```
 
-<img src="2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-8-1.png" width="672" />
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-8-1.png" width="672" />
 
 接下来我们需要计算后验分布. 你可能从前面的练习当中已经发现了, 由于我们关心的最终结果是点估计值, 这个值其实和具体的后验概率没有多大关系, 而与图形的形状息息相关. 因此, 我们可以完全不用在意贝叶斯公式右侧的分母, 只需用下面的公式来计算后验即可:
 
 $$ Posterior[i,:] \propto$ Likelihood[i,:] \odot Prior [i,:] $$
 
+上面的 `\(\odot\)` 符号代表矩阵点乘, 即矩阵各个对应元素相乘. 我们在前面已经构建出了大脑中的先验信息和似然函数, 我们使用点乘便可得到我们的后验数组:
+
+
+```r
+posterior_array <- prior_array * likelihood_array / sum(prior_array * likelihood_array)
+plot_bayesian_matrix(posterior_array)
+```
+
+<img src="/post/2020-07-25-modeling-psychology-control-system_files/figure-html/unnamed-chunk-9-1.png" width="672" />
 
