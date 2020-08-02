@@ -329,10 +329,13 @@ matrix_coordinates_to_dataframe <- function(raw_matrix){
   return(output_dataframe)
 }
 
-
-matrix_coordinates_to_dataframe(likelihood_array) %>% 
+plot_bayesian_matrix <- function(matrix){
+  matrix_coordinates_to_dataframe(matrix) %>% 
   ggplot() + geom_tile(aes(x = x, y = y, fill = value)) +
-  labs(title = "Mulitlikelihood") + ylab("x_tilde")
+  labs(title = "Mulitlikelihood") + ylab("x_tilde") + scale_fill_continuous(type = "viridis")
+}
+
+plot_bayesian_matrix(likelihood_array)
 ```
 
 我们看到的这张图是由大量的高斯似然函数图像拼接起来的. 图中的颜色亮度越高, 代表了对应的点概率也就越高. 从图上我们可以看出来, 大脑所表征的空间位置 $\tilde{x}$ 和真实的 $x$ 接近的概率较大, 而其他范围则较小.
@@ -359,10 +362,7 @@ calculate_prior_array <- function(x_points, stim_array,
 }
 
 prior_array <- calculate_prior_array(x, hypothetical_stim, 0.65) 
-prior_array %>% 
-  matrix_coordinates_to_dataframe() %>% 
-  ggplot() + geom_tile(aes(x = x, y = y, fill = value)) +
-  labs(title = "Prior") + ylab("x_tilde")
+plot_bayesian_matrix(prior_array)
 ```
 
 接下来我们需要计算后验分布. 你可能从前面的练习当中已经发现了, 由于我们关心的最终结果是点估计值, 这个值其实和具体的后验概率没有多大关系, 而与图形的形状息息相关. 因此, 我们可以完全不用在意贝叶斯公式右侧的分母, 只需用下面的公式来计算后验即可:
@@ -373,10 +373,6 @@ $$ Posterior[i,:] \propto$ Likelihood[i,:] \odot Prior [i,:] $$
 
 ```{r}
 posterior_array <- prior_array * likelihood_array / sum(prior_array * likelihood_array)
-
-posterior_array %>% 
-  matrix_coordinates_to_dataframe() %>% 
-  ggplot() + geom_tile(aes(x = x, y = y, fill = value)) +
-  labs(title = "Posterior") + ylab("x_tilde")
+plot_bayesian_matrix(posterior_array)
 ```
 
